@@ -25,6 +25,12 @@ namespace Ecommerce.Controllers
         [HttpPost]
         public IActionResult Create(Models.Category obj)
         {
+            //if(obj.Name == obj.DisplayOrder.ToString())
+            //{
+            //    //The key name, tells the app where to show the modal error.
+            //    //In this case is right below the name input.
+            //    ModelState.AddModelError("name", "The DisplayOrder cannot exactly match the Name");
+            //}
             if(ModelState.IsValid)
             {
                 _db.Categories.Add(obj);

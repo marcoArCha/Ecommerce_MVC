@@ -6,6 +6,8 @@
             <h2 class="text-primary"> Create Category</h2>
             <hr/>
         </div>
+        @*asp-validation-summary is a tag helper to show all errors*@
+        @* <div asp-validation-summary="All"></div> *@
         <div class="mb-3 row p-1">
             <label asp-for="Name" class="p-0"></label>
             @* type="text" is not necessary  *@
@@ -28,3 +30,10 @@
         </div>
     </div>
 </form>
+
+@* For client side validation *@
+            @section Scripts{
+                @{
+                    <partial name="_ValidationScriptsPartial" />
+                }
+            } 
