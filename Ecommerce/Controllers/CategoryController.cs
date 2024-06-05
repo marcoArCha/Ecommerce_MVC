@@ -36,6 +36,8 @@ namespace Ecommerce.Controllers
             {
                 _db.Categories.Add(obj);
                 _db.SaveChanges();
+                //TempData is only available for the next render
+                TempData["success"] = "Category created successfully";
 
                 //RedirectToAction looks for the action in the same controller
                 //If the action is in another controller, pass it as a parameter
@@ -72,7 +74,8 @@ namespace Ecommerce.Controllers
             if (ModelState.IsValid)
             {
                 _db.Categories.Update(obj);
-                _db.SaveChanges();  
+                _db.SaveChanges();
+                TempData["success"] = "Category updated successfully";
                 return RedirectToAction("Index");   
             }
             return View();
@@ -108,6 +111,7 @@ namespace Ecommerce.Controllers
             }
             _db.Categories.Remove(obj);
             _db.SaveChanges();
+            TempData["success"] = "Category deleted successfully";
             return RedirectToAction("Index");
         }
     }
